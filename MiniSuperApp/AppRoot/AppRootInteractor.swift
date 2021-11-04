@@ -25,11 +25,12 @@ final class AppRootInteractor: PresentableInteractor<AppRootPresentable>, AppRoo
     super.init(presenter: presenter)
     presenter.listener = self
   }
-  
+
+  // router.launch로 인하여 불리는 값
   override func didBecomeActive() {
     super.didBecomeActive()
     
-    router?.attachTabs()
+    router?.attachTabs() // attachTab이 되고
   }
   
   override func willResignActive() {

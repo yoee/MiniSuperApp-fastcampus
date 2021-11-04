@@ -13,6 +13,7 @@ final class AppRootComponent: Component<AppRootDependency>, AppHomeDependency, F
 
 // MARK: - Builder
 
+// 다른 리블렛들의 부모
 protocol AppRootBuildable: Buildable {
   func build() -> (launchRouter: LaunchRouting, urlHandler: URLHandler)
 }
@@ -29,11 +30,12 @@ final class AppRootBuilder: Builder<AppRootDependency>, AppRootBuildable {
     let tabBar = RootTabBarController()
     
     let interactor = AppRootInteractor(presenter: tabBar)
-    
+
+      // 자식을 생성.
     let appHome = AppHomeBuilder(dependency: component)
     let financeHome = FinanceHomeBuilder(dependency: component)
     let profileHome = ProfileHomeBuilder(dependency: component)
-    let router = AppRootRouter(
+    let router = AppRootRouter( // 자식을 붙이는건 라우터가
       interactor: interactor,
       viewController: tabBar,
       appHome: appHome,

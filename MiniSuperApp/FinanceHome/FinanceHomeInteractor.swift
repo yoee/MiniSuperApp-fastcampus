@@ -13,6 +13,7 @@ protocol FinanceHomeListener: AnyObject {
   // TODO: Declare methods the interactor can invoke to communicate with other RIBs.
 }
 
+// 비지니스 로직은 Interactor에서
 final class FinanceHomeInteractor: PresentableInteractor<FinanceHomePresentable>, FinanceHomeInteractable, FinanceHomePresentableListener {
   
   weak var router: FinanceHomeRouting?

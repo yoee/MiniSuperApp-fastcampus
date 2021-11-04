@@ -17,7 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let result = AppRootBuilder(dependency: AppComponent()).build()
     self.launchRouter = result.launchRouter
     self.urlHandler = result.urlHandler
-    launchRouter?.launch(from: window)
+    launchRouter?.launch(from: window) // 앱의 맨 처음 리블렛에만 사용한다.
+    // 얘가 interactor의 didBecomeActive를 호출
     
     return true
   }
